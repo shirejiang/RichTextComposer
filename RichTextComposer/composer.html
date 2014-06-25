@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    img {
+      display: block;
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    /* placeholder for contenteditable dom */
+    [contenteditable=true]:empty:before{
+      content: attr(placeholder);
+      color: #a6a6a6;
+    }
+
+    input#title-input {
+      width: 100%;
+      margin: 0;
+      padding: 5px 0 10px;
+      border: none;
+      border-bottom: 1px solid #ddd;
+      /*border-bottom: 0.5px solid #bbb;*/
+      font-size: 18px;
+      font-family:Helvetica;
+      -webkit-tap-highlight-color: rgba(0,0,0,0);    /* remove the gray tap color */
+      border-radius: 0;
+    }
+
+    #content {
+      padding: 10px 0;
+      font-family:Helvetica;
+      -webkit-tap-highlight-color: rgba(0,0,0,0);
+      min-height:100px;
+    }
+
+  </style>
+</head>
+<body>
+<input id="title-input" type="text" autofocus="true">
+<div id="content" contenteditable="true" onmouseup="saveSelection();" onkeyup="saveSelection();" onfocus="restoreSelection();" ></div>
+<script>
+  var savedRange, isInFocus;
+  var editableContent = document.getElementById("content");
+  var titleInput = document.getElementById("title-input");
+
+  // init placeholder for multi-language support
+  function initPlaceholder(inputPlaceholder, contentPlaceholder) {
+    titleInput.setAttribute('placeholder', inputPlaceholder);
+    editableContent.setAttribute('placeholder', contentPlaceholder);
+  }
+
+  // trigger focus
+  function triggerFocus() {
+    editableContent.focus();
+  }
+
+  // save selection for cursor
+  function saveSelection()
+  {
+    if(window.getSelection)//non IE Browsers
+    {
+      savedRange = window.getSelection().getRangeAt(0);
+    }
+    else if(document.selection)//IE
+    {
+      savedRange = document.selection.createRange();
+    }
+  }
+
+  // restore selection for cursor
+  function restoreSelection()
+  {
+    isInFocus = true;
+    editableContent.focus();
+    if (savedRange != null) {
+      if (window.getSelection)//non IE and there is already a selection
+      {
+        var s = window.getSelection();
+        if (s.rangeCount > 0)
+          s.removeAllRanges();
+        s.addRange(savedRange);
+      }
+      else if (document.createRange)//non IE and no selection
+      {
+        window.getSelection().addRange(savedRange);
+      }
+      else if (document.selection)//IE
+      {
+        savedRange.select();
+      }
+    }
+  }
+
+  // insert images
+  function insertImage(imageName, imagePath) {
+    restoreSelection();
+    var imageElement = document.createElement('img');
+    var breakElement = document.createElement('div');
+    imageElement.setAttribute('src', imagePath);
+    imageElement.setAttribute('id', imageName);
+    breakElement.innerHTML = "<br>";
+    editableContent.appendChild(imageElement);
+    editableContent.appendChild(breakElement);
+  }
+
+  // update image url for post
+  function updateImageURL(imageName, imageURL) {
+    var selectedElement = document.getElementById(imageName);
+    selectedElement.setAttribute('src', imageURL);
+  }
+
+  // alert html content
+  function alertHtml() {
+    var html = editableContent.innerHTML;
+    alert(html);
+  }
+
+</script>
+</body>
+</html>

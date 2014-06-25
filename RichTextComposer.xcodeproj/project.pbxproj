@@ -21,6 +21,8 @@
 		1AFDDE9E195AFCD100AFA4A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFDDE80195AFCD100AFA4A7 /* UIKit.framework */; };
 		1AFDDEA6195AFCD100AFA4A7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1AFDDEA4195AFCD100AFA4A7 /* InfoPlist.strings */; };
 		1AFDDEA8195AFCD100AFA4A7 /* RichTextComposerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AFDDEA7195AFCD100AFA4A7 /* RichTextComposerTests.m */; };
+		6856D29A71629B44BF461699 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6856DDD133C251389C899812 /* Localizable.strings */; };
+		6856DE135778F7D640A0E873 /* composer.html in Resources */ = {isa = PBXBuildFile; fileRef = 6856D17222FF5CAB4C39085D /* composer.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		1AFDDEA3195AFCD100AFA4A7 /* RichTextComposerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RichTextComposerTests-Info.plist"; sourceTree = "<group>"; };
 		1AFDDEA5195AFCD100AFA4A7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1AFDDEA7195AFCD100AFA4A7 /* RichTextComposerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RichTextComposerTests.m; sourceTree = "<group>"; };
+		6856D17222FF5CAB4C39085D /* composer.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = composer.html; sourceTree = "<group>"; };
+		6856DDD133C251389C899812 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,7 @@
 				1AFDDE92195AFCD100AFA4A7 /* ViewController.m */,
 				1AFDDE94195AFCD100AFA4A7 /* Images.xcassets */,
 				1AFDDE83195AFCD100AFA4A7 /* Supporting Files */,
+				6856DDD133C251389C899812 /* Localizable.strings */,
 			);
 			path = RichTextComposer;
 			sourceTree = "<group>";
@@ -130,6 +135,7 @@
 				1AFDDE85195AFCD100AFA4A7 /* InfoPlist.strings */,
 				1AFDDE88195AFCD100AFA4A7 /* main.m */,
 				1AFDDE8A195AFCD100AFA4A7 /* RichTextComposer-Prefix.pch */,
+				6856D17222FF5CAB4C39085D /* composer.html */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -231,6 +237,8 @@
 				1AFDDE95195AFCD100AFA4A7 /* Images.xcassets in Resources */,
 				1AFDDE87195AFCD100AFA4A7 /* InfoPlist.strings in Resources */,
 				1AFDDE90195AFCD100AFA4A7 /* Main.storyboard in Resources */,
+				6856DE135778F7D640A0E873 /* composer.html in Resources */,
+				6856D29A71629B44BF461699 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
